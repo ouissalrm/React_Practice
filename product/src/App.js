@@ -22,13 +22,7 @@ function App() {
   )
 
   return (
-    <div className="App">
-     <h1> Products </h1>
-   <div>
-    {resultat}
-   </div>
-     
-    </div>
+    <div className="App">{resultat}</div>
   );
 }
 
