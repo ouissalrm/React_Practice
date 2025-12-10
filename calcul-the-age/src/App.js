@@ -9,7 +9,7 @@ const age=document.getElementById('age').value;
 const year = new Date().getFullYear()
 setcalcul({
   hégirien: `Âge en années hégiriennes : ${age * 1.03}` ,
-  grégorien : `Âge en années grégoriennes : GI${year-age}`
+  grégorien : `Âge en années grégoriennes :${year-age}`
 })
 document.getElementById('age').value = '';
 

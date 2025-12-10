@@ -1,0 +1,58 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.header{
+  width: 100%;
+  background-color: rgb(38, 116, 116);
+
+}
+.header h1{
+  font-size: 2em;
+  text-align: center;
+  color: #fff;
+  padding: 25px;
+
+}
+section{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 20px;
+  
+}
+.card{
+border: 2px solid rgb(38, 116, 116) ;
+margin-top: 10px;
+margin: 25px;
+text-align: center;
+padding: 0px 20Px;
+ padding: 20px;
+}
+.tag{
+  border: 3px solid rgb(38, 116, 116) ;
+  width: 50%;
+  height: 400px;
+  margin-top: 10px;
+ 
+}
+.buttons{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  
+
+}
+
+button {
+  background-color: mediumorchid;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+  margin: 10px;
+  box-shadow: 1px 0px 4px 3px rgb(138, 136, 136);
+}
+button:hover{
+  background-color: rgba(137, 43, 226, 0.664);
+  
+}
