@@ -2,9 +2,13 @@ import logo from './logo.svg';
 import './App.css';
 import Header from './Header';
 import { useState } from 'react';
+import { Alert } from 'bootstrap';
+import Model from './Model';
 
 function App() {
-  
+
+  const [erreur ,seterreur ]= useState(null)
+  const [isVisibles ,setIsVisible] = useState(false)
 
   const [Form , SetForm] =useState({
     Name : "",
@@ -19,25 +23,45 @@ Form.Name === "" ||
 Form.Age === "" ||
  Form.Employee === "" || Form.PhoneNumber === "" || Form.Salary === ""
 
-  const handleSubmit = () => {
-    alert("Form submitted!");
-  };
+  // const handleSubmit = () => {
+  //   if(Form.PhoneNumber.length>11){
+  //     alert("nUMBER > 10")
+  //   }
+  //   else if(Form.Age.length>3){
+  //     alert("age >3")
+  //   }
+  //   else{
+  //     alert("form is valid")
+  //   }
+  // };
+
  
-// const submiit = ()=>{
-//   if(disabled===true){
-//     alert("no")
-//   }
-//   else{
-//     "ui"
-//   }
-// }
+const submiit = ()=>{
+
+  if(Form.Age>20){
+    seterreur("L’âge renseigné n’est pas valide")
+  }
+  if(Form.PhoneNumber.length>=10 ||Form.PhoneNumber.length<=10){
+seterreur("Le numéro de téléphone doit contenir uniquement 10 chiffres")
+  }
+setIsVisible(true)
+ }
+
+const noSubmit =()=>
+  {
+    if(isVisibles){
+      setIsVisible(false)
+    }
+
+}
+
+
   return (
-    <div className="App">
+    <div className="App" onClick={noSubmit}>
   
       <Header />
-      <form onSubmit={(e)=>{e.preventDefault();
-        handleSubmit()
-      }
+          <Model isVisible={isVisibles} error={erreur} />
+      <form onSubmit={(e)=>{e.preventDefault() ; submiit()}
     } >
         <label>Name  : </label><br></br>
         <input type='text' value={Form.Name} onChange={(e)=>{
@@ -70,9 +94,7 @@ Form.Age === "" ||
         </select><br></br><br></br>
         <button disabled={disabled}>Submit</button>
       </form>
-      <div>
-       {Form.Name} ==== {Form.PhoneNumber} === {Form.Age} === {Form.Salary}
-      </div>
+     
     </div>
 
   );
